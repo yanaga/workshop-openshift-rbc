@@ -837,7 +837,7 @@ frontend-ui   <span class="tok-m">172</span>.30.40.241   <span class="tok-m">172
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl create -f mysql-pvc.yaml</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc create -f mysql-pvc.yaml</strong>
 persistentvolumeclaim <span class="tok-s2">&quot;mysql-pvc&quot;</span> created</code></pre>
 </div>
 </div>
@@ -849,7 +849,7 @@ persistentvolumeclaim <span class="tok-s2">&quot;mysql-pvc&quot;</span> created<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl get pvc</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc get pvc</strong>
 NAME        STATUS    VOLUME    CAPACITY   ACCESSMODES   STORAGECLASS   AGE
 mysql-pvc   Bound     pv0044    100Gi      RWO,ROX,RWX                  27s</code></pre>
 </div>
@@ -859,13 +859,13 @@ mysql-pvc   Bound     pv0044    100Gi      RWO,ROX,RWX                  27s</cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl create -f mysql-deployment.yaml -f mysql-service.yaml</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc create -f mysql-deployment.yaml -f mysql-service.yaml</strong>
 deployment <span class="tok-s2">&quot;mysql&quot;</span> created
 service <span class="tok-s2">&quot;mysql&quot;</span> created</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Lastly, you can see the pods and service status via the command line.  Recall the command you can use to see the status (hint: <em>kubectl get &#8230;&#8203;</em>).  Make sure the status is <em>Running</em> before continuing.</p>
+<p>Lastly, you can see the pods and service status via the command line.  Recall the command you can use to see the status (hint: <em>oc get &#8230;&#8203;</em>).  Make sure the status is <em>Running</em> before continuing.</p>
 </div>
 </div>
 <div class="sect2">
