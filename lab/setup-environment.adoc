@@ -32,7 +32,7 @@ Make sure to have the following tools/packages installed:
 - Maven
 - OpenShift CLI (oc)
 
-## Accessing the RBC Workshop OpenShift cluster
+### Accessing the RBC Workshop OpenShift cluster
 
 You should have received a paper containing your username, password, and project for this workshop. Please let one of instructors know if you didn't receive the paper.
 
