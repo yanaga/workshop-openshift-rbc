@@ -54,19 +54,11 @@ include::external-access.adoc[]
 
 include::scaling.adoc[]
 
-include::health-checks.adoc[]
-
 include::rolling-update.adoc[]
 
 include::graceful-shutdown.adoc[]
 
-## Kubernetes - Going further
-
 include::openshift.adoc[]
-
-include::configuring-application.adoc[]
-
-include::managing-credentials.adoc[]
 
 include::autoscaling.adoc[]
 

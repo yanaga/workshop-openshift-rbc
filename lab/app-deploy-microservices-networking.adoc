@@ -22,7 +22,7 @@ First, find the name of the both helloworld-service-vertx pods:
 
 [source, bash, subs="normal,attributes"]
 ----
-[vagrant@rhel-cdk kubernetes]$ *oc get pods -l app=helloworld-service-vertx*
+$ *oc get pods -l app=helloworld-service-vertx*
 NAME                             READY     STATUS    RESTARTS   AGE
 helloworld-service-vertx-?????   1/1       Running   0          14m
 helloworld-service-vertx-?????   1/1       Running   0          15m
