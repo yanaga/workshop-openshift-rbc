@@ -34,7 +34,7 @@ include::preface.adoc[]
 
 include::setup-environment.adoc[]
 
-## Kubernetes - The Basics
+## OpenShift - The Basics
 
 We’re going to work through this yanaga/workshop-openshift/rbchttps://github.com/yanaga/workshop-openshift-rbc[Guestbook] example. This example has a frontend using HTML5 and Javascript (client-side and server-side), and two microservices built using link:http://wildfly-swarm.io[WildFly Swarm] and link:http://vertx.io/[VertX]. It requires MySQL to store guestbook entries.
 
