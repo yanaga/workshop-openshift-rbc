@@ -16,13 +16,13 @@
 #### Internal Kubernetes networking
 Duration: 7:00
 
-In Kubernetes every pod has a unique IP address!  You can “login” into one of these pods by using the _kubectl exec_ command.  This can drop you into a shell and execute commands inside of the container.
+In Kubernetes every pod has a unique IP address!  You can “login” into one of these pods by using the _oc exec_ command.  This can drop you into a shell and execute commands inside of the container.
 
 First, find the name of the both helloworld-service-vertx pods:
 
 [source, bash, subs="normal,attributes"]
 ----
-[vagrant@rhel-cdk kubernetes]$ *kubectl get pods -l app=helloworld-service-vertx*
+[vagrant@rhel-cdk kubernetes]$ *oc get pods -l app=helloworld-service-vertx*
 NAME                             READY     STATUS    RESTARTS   AGE
 helloworld-service-vertx-?????   1/1       Running   0          14m
 helloworld-service-vertx-?????   1/1       Running   0          15m
@@ -30,11 +30,11 @@ helloworld-service-vertx-?????   1/1       Running   0          15m
 
 NOTE: Note that we used the parameter _-l app=helloworld-service-vertx_. This parameter allows us to specify labels as filter. The label _app=helloworld-service-vertx_ was defined in the ReplicationController as a template for all pods.
 
-Then, use _kubectl exec_ to exucute a _"bash"_ process into the container:
+Then, use _oc exec_ to exucute a _"bash"_ process into the container:
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *kubectl exec -it helloworld-service-vertx-????? bash*
+$ *oc exec -it helloworld-service-vertx-????? bash*
 [jboss@helloworld-service-vertx-????? ~]$ _
 ----
 
@@ -55,7 +55,7 @@ jboss       36  0.0  0.0  49468  1664 ?        R+   20:51   0:00 ps aux
 exit
 ----
 
-Don’t forget to exit :).  
+Don’t forget to exit :).
 
 [TIP]
 ====
@@ -76,7 +76,7 @@ If you login into a container (find and use the frontend-ui container), you can 
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *kubectl exec -it frontend-ui-????? bash*
+$ *oc exec -it frontend-ui-????? bash*
 
 bash-4.2$* wget -qO- http://helloworld-service-vertx:8080/api/hello/Rafael*
 Hello Rafael from helloworld-service-vertx-a4zq3 with 1.0
@@ -85,4 +85,4 @@ bash-4.2$ *exit*
 exit
 ----
 
-Pretty simple right!? 
+Pretty simple right!?

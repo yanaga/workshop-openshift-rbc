@@ -22,7 +22,7 @@ Create the frontend service:
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *kubectl create -f frontend-service.yaml*
+$ *oc create -f frontend-service.yaml*
 service "frontend-ui" created
 ----
 
@@ -30,8 +30,7 @@ And check it:
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *kubectl get services*
+$ *oc get services*
 NAME          CLUSTER-IP      EXTERNAL-IP                   PORT(S)        AGE
 frontend-ui   172.30.40.241   172.29.133.81,172.29.133.81   80:32476/TCP   7s
 ----
-

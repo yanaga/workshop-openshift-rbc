@@ -812,7 +812,7 @@ The <em>ContainerCreating</em> status means that Kubernetes still downloading th
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl create -f frontend-service.yaml</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc create -f frontend-service.yaml</strong>
 service <span class="tok-s2">&quot;frontend-ui&quot;</span> created</code></pre>
 </div>
 </div>
@@ -821,7 +821,7 @@ service <span class="tok-s2">&quot;frontend-ui&quot;</span> created</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl get services</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc get services</strong>
 NAME          CLUSTER-IP      EXTERNAL-IP                   PORT<span class="tok-o">(</span>S<span class="tok-o">)</span>        AGE
 frontend-ui   <span class="tok-m">172</span>.30.40.241   <span class="tok-m">172</span>.29.133.81,172.29.133.81   <span class="tok-m">80</span>:32476/TCP   7s</code></pre>
 </div>
@@ -910,7 +910,7 @@ service <span class="tok-s2">&quot;mysql&quot;</span> created</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl create -f helloworldservice-deployment.yaml -f helloworldservice-service.yaml</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc create -f helloworldservice-deployment.yaml -f helloworldservice-service.yaml</strong>
 deployment <span class="tok-s2">&quot;helloworld-service-vertx&quot;</span> created
 service <span class="tok-s2">&quot;helloworld-service-vertx&quot;</span> created</code></pre>
 </div>
@@ -920,7 +920,7 @@ service <span class="tok-s2">&quot;helloworld-service-vertx&quot;</span> created
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl get deployments</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc get deployments</strong>
 NAME                       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 frontend-ui                <span class="tok-m">2</span>         <span class="tok-m">2</span>         <span class="tok-m">2</span>            <span class="tok-m">2</span>           12m
 helloworld-service-vertx   <span class="tok-m">2</span>         <span class="tok-m">2</span>         <span class="tok-m">2</span>            <span class="tok-m">2</span>           22s
@@ -932,7 +932,7 @@ mysql                      <span class="tok-m">1</span>         <span class="tok
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl get pods</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc get pods</strong>
 NAME                             READY     STATUS    RESTARTS   AGE
 frontend-ui-1bvcv                <span class="tok-m">1</span>/1       Running   <span class="tok-m">0</span>          2h
 frontend-ui-5vtsp                <span class="tok-m">1</span>/1       Running   <span class="tok-m">0</span>          2h
@@ -946,7 +946,7 @@ mysql-xvi3c                      <span class="tok-m">1</span>/1       Running   
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>vagrant@rhel-cdk kubernetes<span class="tok-o">]</span>$ <strong>kubectl logs -f helloworld-service-vertx-?????</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>vagrant@rhel-cdk kubernetes<span class="tok-o">]</span>$ <strong>oc logs -f helloworld-service-vertx-?????</strong>
 Aug <span class="tok-m">02</span>, <span class="tok-m">2016</span> <span class="tok-m">5</span>:38:11 AM io.vertx.core.impl.launcher.commands.VertxIsolatedDeployer
 INFO: Succeeded in deploying verticle</code></pre>
 </div>
@@ -959,7 +959,7 @@ INFO: Succeeded in deploying verticle</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl delete pod helloworld-service-vertx-?????</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc delete pod helloworld-service-vertx-?????</strong>
 pod <span class="tok-s2">&quot;helloworld-service-vertx-????&quot;</span> deleted</code></pre>
 </div>
 </div>
@@ -968,7 +968,7 @@ pod <span class="tok-s2">&quot;helloworld-service-vertx-????&quot;</span> delete
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>vagrant@rhel-cdk kubernetes<span class="tok-o">]</span>$ <strong>kubectl get pods</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>vagrant@rhel-cdk kubernetes<span class="tok-o">]</span>$ <strong>oc get pods</strong>
 NAME                             READY     STATUS    RESTARTS   AGE
 &#8230;&#8203;
 helloworld-service-vertx-ezuq3   <span class="tok-m">1</span>/1       Running   <span class="tok-m">0</span>          1m
@@ -981,7 +981,7 @@ helloworld-service-vertx-sgds6   <span class="tok-m">1</span>/1       Running   
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl create -f guestbookservice-deployment.yaml -f guestbookservice-service.yaml</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc create -f guestbookservice-deployment.yaml -f guestbookservice-service.yaml</strong>
 deployment <span class="tok-s2">&quot;guestbook-service&quot;</span> created
 service <span class="tok-s2">&quot;guestbook-service&quot;</span> created</code></pre>
 </div>
@@ -992,14 +992,14 @@ service <span class="tok-s2">&quot;guestbook-service&quot;</span> created</code>
 <p>Duration: 7:00</p>
 </div>
 <div class="paragraph">
-<p>In Kubernetes every pod has a unique IP address!  You can “login” into one of these pods by using the <em>kubectl exec</em> command.  This can drop you into a shell and execute commands inside of the container.</p>
+<p>In Kubernetes every pod has a unique IP address!  You can “login” into one of these pods by using the <em>oc exec</em> command.  This can drop you into a shell and execute commands inside of the container.</p>
 </div>
 <div class="paragraph">
 <p>First, find the name of the both helloworld-service-vertx pods:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>vagrant@rhel-cdk kubernetes<span class="tok-o">]</span>$ <strong>kubectl get pods -l <span class="tok-nv">app</span><span class="tok-o">=</span>helloworld-service-vertx</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>vagrant@rhel-cdk kubernetes<span class="tok-o">]</span>$ <strong>oc get pods -l <span class="tok-nv">app</span><span class="tok-o">=</span>helloworld-service-vertx</strong>
 NAME                             READY     STATUS    RESTARTS   AGE
 helloworld-service-vertx-?????   <span class="tok-m">1</span>/1       Running   <span class="tok-m">0</span>          14m
 helloworld-service-vertx-?????   <span class="tok-m">1</span>/1       Running   <span class="tok-m">0</span>          15m</code></pre>
@@ -1018,11 +1018,11 @@ Note that we used the parameter <em>-l app=helloworld-service-vertx</em>. This p
 </table>
 </div>
 <div class="paragraph">
-<p>Then, use <em>kubectl exec</em> to exucute a <em>"bash"</em> process into the container:</p>
+<p>Then, use <em>oc exec</em> to exucute a <em>"bash"</em> process into the container:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl <span class="tok-nb">exec</span> -it helloworld-service-vertx-????? bash</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc <span class="tok-nb">exec</span> -it helloworld-service-vertx-????? bash</strong>
 <span class="tok-o">[</span>jboss@helloworld-service-vertx-????? ~<span class="tok-o">]</span>$ _</code></pre>
 </div>
 </div>
@@ -1086,7 +1086,7 @@ OpenShift Client (oc) allows you to easily access the shell through the command 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl <span class="tok-nb">exec</span> -it frontend-ui-????? bash</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc <span class="tok-nb">exec</span> -it frontend-ui-????? bash</strong>
 
 bash-4.2<span class="tok-nv">$<strong></span> wget -qO- <a href="http://helloworld-service-vertx:8080/api/hello/Rafael" class="bare">http://helloworld-service-vertx:8080/api/hello/Rafael</a></strong>
 Hello Rafael from helloworld-service-vertx-a4zq3 with <span class="tok-m">1</span>.0
