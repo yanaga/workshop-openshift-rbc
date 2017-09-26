@@ -73,7 +73,7 @@ INFO: Succeeded in deploying verticle
 ----
 *Note:* The _-f_ flag tails the log.  To stop tailing, press _Ctrl+C_.
 
-Our descriptor file specified 2 replicas. So, if you delete one of the pods (and now you only have 1 replica rather than 2), the ReplicationController will notice that and start another pod for you to meet the configured 2 replicas specification. Let's try it!
+Our descriptor file specified 2 replicas. So, if you delete one of the pods (and now you only have 1 replica rather than 2), the ReplicaSet will notice that and start another pod for you to meet the configured 2 replicas specification. Let's try it!
 
 [source, bash, subs="normal,attributes"]
 ----
@@ -81,7 +81,7 @@ $ *oc delete pod helloworld-service-vertx-?????*
 pod "helloworld-service-vertx-????" deleted
 ----
 
-You should see that the pod was deleted, and the ReplicationController will ensure a second instance is started. Sometimes this goes by very fast - and you'll notice that the pod you deleted is no longer there, and another pod, with a different name, was started.
+You should see that the pod was deleted, and the ReplicaSet will ensure a second instance is started. Sometimes this goes by very fast - and you'll notice that the pod you deleted is no longer there, and another pod, with a different name, was started.
 
 [source, bash, subs="normal,attributes"]
 ----
@@ -93,7 +93,7 @@ helloworld-service-vertx-sgds6   1/1       Running   0          10m
 ...
 ----
 
-Lastly, let’s create the Guestbook Service replication controller and service too!
+Lastly, let’s create the Guestbook Service ReplicatSet and Service too!
 
 [source, bash, subs="normal,attributes"]
 ----

@@ -28,7 +28,7 @@ helloworld-service-vertx-?????   1/1       Running   0          14m
 helloworld-service-vertx-?????   1/1       Running   0          15m
 ----
 
-NOTE: Note that we used the parameter _-l app=helloworld-service-vertx_. This parameter allows us to specify labels as filter. The label _app=helloworld-service-vertx_ was defined in the ReplicationController as a template for all pods.
+NOTE: Note that we used the parameter _-l app=helloworld-service-vertx_. This parameter allows us to specify labels as filter. The label _app=helloworld-service-vertx_ was defined in the ReplicaSet as a template for all pods.
 
 Then, use _oc exec_ to exucute a _"bash"_ process into the container:
 

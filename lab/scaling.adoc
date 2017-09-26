@@ -38,7 +38,7 @@ $ *oc scale dc helloworld-service-vertx --replicas=6*
 deployment "helloworld-service-vertx" scaled
 ----
 
-You can very quickly see that the replication controller has been updated:
+You can very quickly see that the ReplicaSet has been updated:
 
 [source, bash, subs="normal,attributes"]
 ----

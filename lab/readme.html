@@ -923,7 +923,7 @@ INFO: Succeeded in deploying verticle</code></pre>
 <p><strong>Note:</strong> The <em>-f</em> flag tails the log.  To stop tailing, press <em>Ctrl+C</em>.</p>
 </div>
 <div class="paragraph">
-<p>Our descriptor file specified 2 replicas. So, if you delete one of the pods (and now you only have 1 replica rather than 2), the ReplicationController will notice that and start another pod for you to meet the configured 2 replicas specification. Let&#8217;s try it!</p>
+<p>Our descriptor file specified 2 replicas. So, if you delete one of the pods (and now you only have 1 replica rather than 2), the ReplicaSet will notice that and start another pod for you to meet the configured 2 replicas specification. Let&#8217;s try it!</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -932,7 +932,7 @@ pod <span class="tok-s2">&quot;helloworld-service-vertx-????&quot;</span> delete
 </div>
 </div>
 <div class="paragraph">
-<p>You should see that the pod was deleted, and the ReplicationController will ensure a second instance is started. Sometimes this goes by very fast - and you&#8217;ll notice that the pod you deleted is no longer there, and another pod, with a different name, was started.</p>
+<p>You should see that the pod was deleted, and the ReplicaSet will ensure a second instance is started. Sometimes this goes by very fast - and you&#8217;ll notice that the pod you deleted is no longer there, and another pod, with a different name, was started.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -945,7 +945,7 @@ helloworld-service-vertx-sgds6   <span class="tok-m">1</span>/1       Running   
 </div>
 </div>
 <div class="paragraph">
-<p>Lastly, let’s create the Guestbook Service replication controller and service too!</p>
+<p>Lastly, let’s create the Guestbook Service ReplicatSet and Service too!</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -980,7 +980,7 @@ helloworld-service-vertx-?????   <span class="tok-m">1</span>/1       Running   
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note that we used the parameter <em>-l app=helloworld-service-vertx</em>. This parameter allows us to specify labels as filter. The label <em>app=helloworld-service-vertx</em> was defined in the ReplicationController as a template for all pods.
+Note that we used the parameter <em>-l app=helloworld-service-vertx</em>. This parameter allows us to specify labels as filter. The label <em>app=helloworld-service-vertx</em> was defined in the ReplicaSet as a template for all pods.
 </td>
 </tr>
 </table>
@@ -1133,7 +1133,7 @@ bash-4.2$ <strong>exit</strong>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The blue bars on top of the pods are "Label filters" that were applied to select just the specific pods for the <strong>ReplicationController</strong> that you clicked.
+The blue bars on top of the pods are "Label filters" that were applied to select just the specific pods for the <strong>ReplicaSet</strong> that you clicked.
 </td>
 </tr>
 </table>
@@ -1218,7 +1218,7 @@ deployment <span class="tok-s2">&quot;helloworld-service-vertx&quot;</span> scal
 </div>
 </div>
 <div class="paragraph">
-<p>You can very quickly see that the replication controller has been updated:</p>
+<p>You can very quickly see that the ReplicaSet has been updated:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1482,7 +1482,7 @@ Push successful</code></pre>
 <p>Let&#8217;s see how it works using the <a href="https://github.com/yanaga/workshop-openshift-rbc/tree/master/frontend">frontend sources</a> as an example:</p>
 </div>
 <div class="paragraph">
-<p>First, let&#8217;s delete the existing frontend <strong>Route</strong>, <strong>Service</strong> and <strong>ReplicationController</strong></p>
+<p>First, let&#8217;s delete the existing frontend <strong>Route</strong>, <strong>Service</strong> and <strong>ReplicaSet</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">

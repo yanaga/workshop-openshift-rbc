@@ -40,7 +40,7 @@ Take some minutes to explore this interface.
 - Explore the POD details and the other tabs (Environment, Logs, Terminal and Events)
 - In the right top corner, click in the gray _Actions_ button and check that you can also edit the YAML file.
 
-NOTE: The blue bars on top of the pods are "Label filters" that were applied to select just the specific pods for the *ReplicationController* that you clicked.
+NOTE: The blue bars on top of the pods are "Label filters" that were applied to select just the specific pods for the *ReplicaSet* that you clicked.
 
 image::images/pod.png[Pod,float="center",align="center"]
 

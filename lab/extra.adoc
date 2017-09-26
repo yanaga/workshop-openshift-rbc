@@ -25,7 +25,7 @@ OpenShift allows you to get an Source code and transform it in a container image
 
 Let's see how it works using the link:https://github.com/yanaga/workshop-openshift-rbc/tree/master/frontend[frontend sources] as an example:
 
-First, let's delete the existing frontend *Route*, *Service* and *ReplicationController*
+First, let's delete the existing frontend *Route*, *Service* and *ReplicaSet*
 
 [source, bash, subs="normal,attributes"]
 ----
