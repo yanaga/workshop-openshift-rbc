@@ -58,10 +58,6 @@ include::scaling.adoc[]
 
 include::rolling-update.adoc[]
 
-include::graceful-shutdown.adoc[]
-
-include::autoscaling.adoc[]
-
 include::extra.adoc[]
 
 include::references.adoc[]

@@ -545,8 +545,6 @@ Docs and Application Source code: <a href="https://github.com/yanaga/workshop-op
 <li><a href="#_accessing_the_frontend">3.7. Accessing the frontend</a></li>
 <li><a href="#_scaling">3.8. Scaling</a></li>
 <li><a href="#_rolling_update">3.9. Rolling Update</a></li>
-<li><a href="#_graceful_shutdown">3.10. Graceful Shutdown</a></li>
-<li><a href="#_autoscaling">3.11. Autoscaling</a></li>
 </ul>
 </li>
 <li><a href="#_extra_credit">4. Extra Credit</a>
@@ -1427,90 +1425,6 @@ This 2.0 version only exists in your local registry. It will only be available i
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_graceful_shutdown">3.10. Graceful Shutdown</h3>
-<div class="paragraph">
-<p>Duration: 5:00</p>
-</div>
-<div class="paragraph">
-<p>When a pod needs to be deleted (such as reducing the number of replicas), Kubernetes will send the SIGTERM signal to the process. The process should perform all the cleanups. However, we cannot wait forever for the process to exit. By default, Kubernetes waits 30 seconds before sending the final SIGKILL signal to kill the process. If your process needs more or less time, you can configure this through termination grace periods configuration (see  <a href="http://kubernetes.io/docs/user-guide/pods/#termination-of-pods">guide</a>).</p>
-</div>
-<div class="paragraph">
-<p>Optionally, you can also ask Kubernetes to execute a shutdown command via the pre-stop lifecycle hook. Read through the <a href="http://kubernetes.io/docs/user-guide/pods/#termination-of-pods">documentation</a> the learn more - we won&#8217;t implement this during the lab.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_autoscaling">3.11. Autoscaling</h3>
-<div class="paragraph">
-<p>Duration: 5:00</p>
-</div>
-<div class="paragraph">
-<p>Kubernetes 1.2 has built-in Horizontal Pod Autoscaling based on CPU utilization (and custom metrics!). We will only cover autoscaling based on CPU utilization in this lab, since the custom metrics scaling is still in Alpha.</p>
-</div>
-<div class="paragraph">
-<p>To set up horizontal autoscaling is extremely simple:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc autoscale deployment guestbook-service --min <span class="tok-m">1</span> --max <span class="tok-m">10</span> --cpu-percent<span class="tok-o">=</span><span class="tok-m">80</span></strong>
-deployment <span class="tok-s2">&quot;guestbook-service&quot;</span> autoscaled</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Currently, the only metric supported is CPU Utilization.</p>
-</li>
-<li>
-<p>The OpenShift administrator must first enable <a href="https://docs.openshift.com/enterprise/3.2/install_config/cluster_metrics.html">Cluster Metrics</a> before you can enable autoscaling.</p>
-</li>
-<li>
-<p>The OpenShift administrator must also enable <a href="https://docs.openshift.com/enterprise/3.2/admin_guide/limits.html">Resource Limits</a> on the project.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Behind the scenes, Kubernetes will periodically (by default, every 30 seconds) collect CPU utilization and determine the number of pods needed.</p>
-</div>
-<div class="paragraph">
-<p>You can see the current status of the autoscaler by using the describe command:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc describe hpa guestbook-service</strong>
-Name:				guestbook-service
-Namespace:			myproject
-Labels:				&lt;none&gt;
-Annotations:			&lt;none&gt;
-CreationTimestamp:		Thu, <span class="tok-m">04</span> Aug <span class="tok-m">2016</span> <span class="tok-m">06</span>:59:05 -0400
-Reference:			Deployment/guestbook-service
-Target CPU utilization:		<span class="tok-m">80</span>%
-Current CPU utilization:	&lt;unset&gt;
-Min replicas:			<span class="tok-m">1</span>
-Max replicas:			<span class="tok-m">10</span>
-ReplicationController pods:	<span class="tok-m">1</span> current / <span class="tok-m">1</span> desired
-Events:
-&#8230;&#8203;.</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>It&#8217;s going to be a little difficult to enable the Cluster Metrics and generate the load needed to kick off the autoscaler. We won&#8217;t do that during the lab.</p>
-</div>
-<div class="paragraph">
-<p>Learn more about Horizontal Pod Autoscaling (HPA) in the <a href="https://docs.openshift.com/enterprise/3.2/dev_guide/pod_autoscaling.html">guide</a></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1552,7 +1466,7 @@ $ <strong>oc new-app --name<span class="tok-o">=</span>frontend-ui <span class="
     Tags: builder, nodejs, nodejs4
 
     * The <span class="tok-nb">source</span> repository appears to match: nodejs
-    * A <span class="tok-nb">source</span> build using <span class="tok-nb">source</span> code from <a href="https://github.com/redhat-developer-demos/kubernetes-lab" class="bare">https://github.com/redhat-developer-demos/kubernetes-lab</a> will be created
+    * A <span class="tok-nb">source</span> build using <span class="tok-nb">source</span> code from <a href="https://github.com/yanaga/workshop-openshift-rbc" class="bare">https://github.com/yanaga/workshop-openshift-rbc</a> will be created
       * The resulting image will be pushed to image stream <span class="tok-s2">&quot;frontend-ui:latest&quot;</span>
       * Use <span class="tok-s1">&#39;start-build&#39;</span> to trigger a new build
     * This image will be deployed in deployment config <span class="tok-s2">&quot;frontend-ui&quot;</span>
@@ -1725,7 +1639,7 @@ I0804 <span class="tok-m">08</span>:03:45.260863       <span class="tok-m">1</sp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-25 22:08:53 EDT
+Last updated 2017-09-25 22:25:01 EDT
 </div>
 </div>
 </body>

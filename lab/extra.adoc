@@ -46,7 +46,7 @@ $ *oc new-app --name=frontend-ui \
     Tags: builder, nodejs, nodejs4
 
     * The source repository appears to match: nodejs
-    * A source build using source code from https://github.com/redhat-developer-demos/kubernetes-lab will be created
+    * A source build using source code from https://github.com/yanaga/workshop-openshift-rbc will be created
       * The resulting image will be pushed to image stream "frontend-ui:latest"
       * Use 'start-build' to trigger a new build
     * This image will be deployed in deployment config "frontend-ui"
