@@ -127,7 +127,7 @@ Now create a route as explained on <<openshift_route>> to be able to check our n
 
 image::images/aloha-screenshot.png[Aloha application,float="center",align="center"]
 
-Let's modify our application to check how OpenShift handles the updates. Modify line 104 of the file +src/main/java/com/redhat/developers/msa/aloha/AlohaVerticle.java+, and change the String "Aloha Mai" to "Bonjour de".
+Let's modify our application to check how OpenShift handles the updates. Modify line 97 of the file +src/main/java/com/redhat/developers/msa/aloha/AlohaVerticle.java+, and change the String "Aloha Mai" to "Bonjour de".
 
 Execute a new Maven build:
 
@@ -197,3 +197,7 @@ Pushed 14/15 layers, 100% complete
 Pushed 15/15 layers, 100% complete
 Push successful
 ----
+
+Check your OpenShift console during this operation. It might take some time, but after a while you should see the new version of your application running with the updated String:
+
+image::images/aloha-screenshot.png[Aloha application,float="center",align="center"]
