@@ -47,13 +47,78 @@ Then we will tell OpenShift to start a new build from current folder. It will se
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *oc new-build --binary --name=aloha --allow-missing-images*
-* A Docker build using binary input will be created
-  * The resulting image will be pushed to image stream "aloha:latest"
-  * A binary build was created, use 'start-build --from-dir' to trigger a new build
+$ *oc start-build aloha --from-dir=. --follow*
+Uploading directory "." as binary input for the build ...
+build "aloha-3" started
+Receiving source from STDIN as archive ...
+Step 1 : FROM fabric8/java-jboss-openjdk8-jdk:1.1.7
+ ---> c3965661b2b7
+Step 2 : ENV JAVA_APP_JAR aloha-fat.jar
+ ---> Using cache
+ ---> 99ebd7ea4d1e
+Step 3 : ENV AB_ENABLED jolokia
+ ---> Using cache
+ ---> 9a8cebb4a151
+Step 4 : ENV AB_JOLOKIA_AUTH_OPENSHIFT true
+ ---> Using cache
+ ---> b32d3c0eb448
+Step 5 : ENV JAVA_OPTIONS -Xmx256m
+ ---> Using cache
+ ---> 38c343db1b36
+Step 6 : ENV ZIPKIN_SERVER_URL http://zipkin-query:9411
+ ---> Using cache
+ ---> 68af2e79492a
+Step 7 : EXPOSE 8080
+ ---> Using cache
+ ---> ee06802bde6b
+Step 8 : RUN chmod -R 777 /app/
+ ---> Using cache
+ ---> 46cb0f66d9d2
+Step 9 : ADD target/aloha-fat.jar /app/
+ ---> Using cache
+ ---> 7c23662fb23d
+Step 10 : ENV "OPENSHIFT_BUILD_NAME" "aloha-3" "OPENSHIFT_BUILD_NAMESPACE" "yanaga"
+ ---> Running in 190d822da197
+ ---> 4ed3d8a606fe
+Removing intermediate container 190d822da197
+Step 11 : LABEL "io.openshift.build.name" "aloha-3" "io.openshift.build.namespace" "yanaga"
+ ---> Running in 5c8e4acce077
+ ---> 38cfd7b72b4c
+Removing intermediate container 5c8e4acce077
+Successfully built 38cfd7b72b4c
+Pushing image docker-registry.default.svc:5000/yanaga/aloha:latest ...
+Pushed 1/15 layers, 7% complete
+Pushed 2/15 layers, 13% complete
+Pushed 3/15 layers, 20% complete
+Pushed 4/15 layers, 27% complete
+Pushed 5/15 layers, 33% complete
+Pushed 6/15 layers, 40% complete
+Pushed 7/15 layers, 47% complete
+Pushed 8/15 layers, 53% complete
+Pushed 9/15 layers, 60% complete
+Pushed 10/15 layers, 67% complete
+Pushed 11/15 layers, 73% complete
+Pushed 12/15 layers, 80% complete
+Pushed 13/15 layers, 87% complete
+Pushed 14/15 layers, 93% complete
+Pushed 15/15 layers, 100% complete
+Push successful
+----
 
---> Creating resources with label build=aloha ...
-imagestream "aloha" created
-buildconfig "aloha" created
+Now we have a container image ready to be deployed in our OpenShift environment. OpenShift uses the term "Application" for the deployment and execution of container images:
+
+[source, bash, subs="normal,attributes"]
+----
+$ *oc new-app aloha*
+--> Found image 38cfd7b (2 minutes old) in image stream "yanaga/aloha" under tag "latest" for "aloha"
+
+    * This image will be deployed in deployment config "aloha"
+    * Ports 8080/tcp, 8778/tcp, 9779/tcp will be load balanced by service "aloha"
+      * Other containers can access this service through the hostname "aloha"
+
+--> Creating resources ...
+    deploymentconfig "aloha" created
+    service "aloha" created
 --> Success
+    Run 'oc status' to view your app.
 ----
