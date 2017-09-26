@@ -40,7 +40,7 @@ With the provided information, you can login in the cluster with the following c
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *oc login https://openshift-master.g2.rbcexpo.com/*
+$ *oc login https://openshift-master.g1.rbcexpo.com/*
 Username: yanaga
 Password:
 Login successful.

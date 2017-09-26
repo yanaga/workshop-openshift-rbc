@@ -21,7 +21,7 @@ As mentioned before, the application makes use of two other microservices:
 - the Guestbook service (that writes to the MySQL database)
 - a Hello World service
 
-Both services are containers whose images contain self-executing JAR files. The sources are available in the git repository if you are interested in seeing it.
+Both services are containers whose images contain self-executing JAR files. The sources are available in the zip file if you are interested in seeing it.
 
 When deploying these microservices instances, we want to make sure that:
 

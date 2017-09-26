@@ -15,24 +15,24 @@
 
 ## Preface
 
-In the last 3 years, docker and linux containers have become the sensation of the IT industry. The promise of eliminating environment inconsistencies by packaging your software together with all its dependencies (files, libraries, environment variables, runtimes, etc) has driven Linux containers to emerge as a de-facto standard. 
+In the last 3 years, docker and linux containers have become the sensation of the IT industry. The promise of eliminating environment inconsistencies by packaging your software together with all its dependencies (files, libraries, environment variables, runtimes, etc) has driven Linux containers to emerge as a de-facto standard.
 
 Once your application is wrapped in a container, you don't need to lose time configuring a new environment. Running another "instance" of your application is easy and consumes less computational resources than typical Virtual Machines.
 
-Even though containers consume fewer computational resources, a single machine running a dozen containers is not an ideal scenario for a professional "production environment" --- running many containers on a single machine can lead to several issues. 
+Even though containers consume fewer computational resources, a single machine running a dozen containers is not an ideal scenario for a professional "production environment" --- running many containers on a single machine can lead to several issues.
 
 Just to mention a few:
- 
+
 - The quantity of active containers are limited by the "size" of your hardware
 - Unlike a "cloud environment" you can't move the workloads to where you want
-- The one machine becomes the SPOF (Single Point of Failure) of your application. 
+- The one machine becomes the SPOF (Single Point of Failure) of your application.
 
 To achieve a serious "production environment", your Linux containers should be capable of running on more than one single machine, supporting your application's horizontal scaling. In this scenario, features like self-healing, autoscaling, load-balancing, service-discovery, and distributed storage volumes completes the professional touch of your environment. It sounds complicated, but fortunately you can get all of these features from a single technology - Kubernetes.
 
-link:http://kubernetes.io/[Kubernetes] is an open-source project developed by link:https://www.google.com/[Google], with link:https://developers.redhat.com/[Red Hat] at a close second in contributions. Google has over a decade of experience with Linux containers, deploying millions each day. It should be no surprise that Kubernetes' capabilities and maturity have led to its being used as the engine of link:https://www.openshift.com/[OpenShift Enterprise v3]. 
+link:http://kubernetes.io/[Kubernetes] is an open-source project developed by link:https://www.google.com/[Google], with link:https://developers.redhat.com/[Red Hat] at a close second in contributions. Google has over a decade of experience with Linux containers, deploying millions each day. It should be no surprise that Kubernetes' capabilities and maturity have led to its being used as the engine of link:https://www.openshift.com/[OpenShift Enterprise v3]. Kubernetes focuses on the low-level details of container orchestration - but to be truly productive you need enterprise features that are only provided by OpenShift: the enterprise-ready DevOps platform for containers.
 
 image::images/k8slogo.png[Logo,float="center",align="center"]
 
-This lab offers developers a hands-on session with Kubernetes, from the basics concepts, to adding Java based microservices, to service scaling, to perform rolling deployments. This is a BYOL (bring your own laptop) session, so bring your Windows, OSX, or Linux laptop and be ready to dig into a tool that promises to be at the forefront of our industry for some time to come.
+This lab offers developers a hands-on session with OpenShift, from the basics concepts, to adding Java based microservices, to service scaling, to perform rolling deployments. This is a BYOL (bring your own laptop) session, so bring your Windows, OSX, or Linux laptop and be ready to dig into a tool that promises to be at the forefront of our industry for some time to come.
 
-NOTE: Latest content of this lab is always at https://github.com/redhat-developer-demos/kubernetes-lab[]
+NOTE: Latest content of this lab is always at https://github.com/yanaga/workshop-openshift-rbc[]

@@ -13,10 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#### Internal Kubernetes networking
+#### Internal OpenShift networking
 Duration: 7:00
 
-In Kubernetes every pod has a unique IP address!  You can “login” into one of these pods by using the _oc exec_ command.  This can drop you into a shell and execute commands inside of the container.
+In OpenShift every pod has a unique IP address!  You can “login” into one of these pods by using the _oc exec_ command.  This can drop you into a shell and execute commands inside of the container.
 
 First, find the name of the both helloworld-service-vertx pods:
 

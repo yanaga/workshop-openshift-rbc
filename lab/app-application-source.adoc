@@ -16,13 +16,7 @@
 ### Get the Guestbook source
 Duration: 3:00
 
-Start by cloning the github repository for the Guestbook application and move into the kubernetes examples directory.
+You will receive the information about the zip file containing the files of the guestbook application. Please contact one of the instructors if you didn't receive this information.
 
-[source, bash, subs="normal,attributes"]
-----
-$ *git clone https://github.com/yanaga/workshop-openshift-rbc*
-$ *cd workshop-openshift-rbc-lab/openshift*
-----
-
-Kubernetes/OpenShift resources can be specified using link:http://yaml.org/[yaml] or link:http://www.json.org/[json] formats.
-We will be using the yaml files in this directory to decribe and deploy the OpenShift objects in our development environment. You are definitely encouraged to read them and see how pods, services, and others are declared.  We’ll walk through a couple of these files in detail.
+OpenShift resources can be specified using link:http://yaml.org/[yaml] or link:http://www.json.org/[json] formats.
+We will be using the yaml files in this directory to describe and deploy the OpenShift objects in our development environment. You are definitely encouraged to read them and see how pods, services, and others are declared.  We’ll walk through a couple of these files in detail.

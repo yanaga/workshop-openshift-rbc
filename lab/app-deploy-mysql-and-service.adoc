@@ -24,7 +24,7 @@ $ *oc create -f mysql-pvc.yaml*
 persistentvolumeclaim "mysql-pvc" created
 ----
 
-CDK provides several *PersistentVolumes*, previously defined by the cluster administrator. These *PersistentVolumes* will be assigned based on the size claimed by the *PersistentVolumeClaim*.
+Your OpenShift cluster provides several *PersistentVolumes*, previously defined by the cluster administrator. These *PersistentVolumes* will be assigned based on the size claimed by the *PersistentVolumeClaim*.
 
 You can examine the *PersistentVolumeClaim* with the following command:
 
