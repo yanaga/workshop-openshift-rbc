@@ -50,6 +50,8 @@ include::app-deploy-mysql-and-service.adoc[]
 
 include::app-deploy-microservices.adoc[]
 
+include::openshift-console.adoc[]
+
 include::external-access.adoc[]
 
 include::scaling.adoc[]
@@ -57,8 +59,6 @@ include::scaling.adoc[]
 include::rolling-update.adoc[]
 
 include::graceful-shutdown.adoc[]
-
-include::openshift.adoc[]
 
 include::autoscaling.adoc[]
 
