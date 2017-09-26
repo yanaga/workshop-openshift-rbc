@@ -544,7 +544,7 @@ Docs and Application Source code: <a href="https://github.com/yanaga/workshop-op
 <li><a href="#_a_console_to_manage_your_openshift_applications">3.6. A console to manage your OpenShift applications</a></li>
 <li><a href="#_accessing_the_frontend">3.7. Accessing the frontend</a></li>
 <li><a href="#_scaling">3.8. Scaling</a></li>
-<li><a href="#_rolling_update">3.9. Rolling Update</a></li>
+<li><a href="#_building_and_deploying_your_own_application">3.9. Building and Deploying your own application</a></li>
 </ul>
 </li>
 <li><a href="#_extra_credit">4. Extra Credit</a>
@@ -1254,79 +1254,56 @@ deployment <span class="tok-s2">&quot;helloworld-service-vertx&quot;</span> scal
 </div>
 </div>
 <div class="sect2">
-<h3 id="_rolling_update">3.9. Rolling Update</h3>
+<h3 id="_building_and_deploying_your_own_application">3.9. Building and Deploying your own application</h3>
 <div class="paragraph">
-<p>Duration: 10:00</p>
+<p>Duration: 15:00</p>
 </div>
 <div class="paragraph">
-<p>It’s easy to update &amp; rollback.</p>
+<p>You will receive the information about the zip file containing the files of the aloha application. Please contact one of the instructors if you didn&#8217;t receive this information.</p>
 </div>
 <div class="paragraph">
-<p>In this lab, we&#8217;ll switch to the <em>frontend/</em> directory and make a minor change to the index.html (e.g., change the background color, title, etc.). After that, rebuild the container.</p>
+<p>Once you have unpacked the zip file containing the aloha application, switch to the application&#8217;s folder and run a Maven build:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>cd kubernetes-lab/frontend</strong>
-$ <strong>vi index.html</strong></code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>cd aloha</strong>
+$ <strong>mvn clean package</strong></code></pre>
 </div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>HINT 1: Change the <em>&lt;h2&gt;Say Hi&lt;/h2&gt;</em> line, but feel free to change any HTML content that that you want</p>
 </div>
 <div class="paragraph">
-<p>HINT 2: Type <strong>':51'</strong> to go to that line</p>
+<p>Now that we created the local artifact, let&#8217;s configure OpenShift to deploy our new artifact as an OpenShift application.</p>
 </div>
 <div class="paragraph">
-<p>HINT 3: Type <strong>'i'</strong> to enter in edit mode</p>
-</div>
-<div class="paragraph">
-<p>HINT 4: Type <strong>':wq'</strong> to exit from vi</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Kubernetes needs to be aware of the new docker image with the changes that you introduced.</p>
-</div>
-<div class="paragraph">
-<p>Unresolved directive in rolling-update.adoc - include::docker-image-minishift.adoc[]</p>
+<p>First we create a new build configuration in OpenShift:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>docker build -t rafabene/microservices-frontend:2.0 .</strong></code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc new-build --binary --name<span class="tok-o">=</span>aloha --allow-missing-images</strong>
+* A Docker build using binary input will be created
+  * The resulting image will be pushed to image stream <span class="tok-s2">&quot;aloha:latest&quot;</span>
+  * A binary build was created, use <span class="tok-s1">&#39;start-build --from-dir&#39;</span> to trigger a new build
+
+-&#8594; Creating resources with label <span class="tok-nv">build</span><span class="tok-o">=</span>aloha &#8230;&#8203;
+imagestream <span class="tok-s2">&quot;aloha&quot;</span> created
+buildconfig <span class="tok-s2">&quot;aloha&quot;</span> created
+-&#8594; Success</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now we will use the <em>oc rolling-update</em> command to perform the rolling update. We create a new <strong>ReplicationController</strong> called frontend-ui-2 that contains the new image.</p>
+<p>Then we will tell OpenShift to start a new build from current folder. It will send all the contents of the content folder to the OpenShift daemon so it can create a new container image for us:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc <span class="tok-nb">set</span> image  deployment/frontend-ui frontend-ui<span class="tok-o">=</span>rafabene/microservices-frontend:2.0</strong>
-deployment <span class="tok-s2">&quot;frontend-ui&quot;</span> image updated</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc new-build --binary --name<span class="tok-o">=</span>aloha --allow-missing-images</strong>
+* A Docker build using binary input will be created
+  * The resulting image will be pushed to image stream <span class="tok-s2">&quot;aloha:latest&quot;</span>
+  * A binary build was created, use <span class="tok-s1">&#39;start-build --from-dir&#39;</span> to trigger a new build
+
+-&#8594; Creating resources with label <span class="tok-nv">build</span><span class="tok-o">=</span>aloha &#8230;&#8203;
+imagestream <span class="tok-s2">&quot;aloha&quot;</span> created
+buildconfig <span class="tok-s2">&quot;aloha&quot;</span> created
+-&#8594; Success</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>That&#8217;s it! Kubernetes will performed a rolling update to update all the versions from 1.0 to 2.0.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This 2.0 version only exists in your local registry. It will only be available if you have built it using the <em>docker build</em> command.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -1543,7 +1520,7 @@ I0804 <span class="tok-m">08</span>:03:45.260863       <span class="tok-m">1</sp
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-25 22:25:01 EDT
+Last updated 2017-09-25 23:23:39 EDT
 </div>
 </div>
 </body>
