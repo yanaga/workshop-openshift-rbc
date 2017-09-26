@@ -122,3 +122,7 @@ $ *oc new-app aloha*
 --> Success
     Run 'oc status' to view your app.
 ----
+
+Now create a route as explained on <<openshift_route>> to be able to check our newly deployed application. If you check your route URL and append the +/api/aloha+ path to it you should see a message similar to this one:
+
+image::images/aloha-screenshot.png[Aloha application,float="center",align="center"]
