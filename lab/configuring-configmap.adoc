@@ -105,7 +105,7 @@ spec:
       ...
 ----
 
-This will make the configuration file available as the file _/etc/config/config.json_. Let's verify by going into the pod itself (remember how to do this by using _kubectl exec_? You can also use _oc exec_, but now you will learn another option: _oc rsh_):
+This will make the configuration file available as the file _/etc/config/config.json_. Let's verify by going into the pod itself (remember how to do this by using _oc exec_? You can also use _oc exec_, but now you will learn another option: _oc rsh_):
 
 First, find the pod name:
 
@@ -158,11 +158,11 @@ spec:
   template:
     ...
     spec:
-      ... 
+      ...
       containers:
       - image: rafabene/microservices-helloworld-vertx:...
         *args:
-        - -conf 
+        - -conf
         - /etc/config/config.json*
       ...
 ----

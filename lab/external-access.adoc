@@ -37,7 +37,7 @@ Note that we have specified *LoadBalancer*, but it only works on cloud providers
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *kubectl describe service frontend-ui*
+$ *oc describe service frontend-ui*
 Name:                     frontend-ui
 Namespace:                myproject
 Labels:                   app=frontend-ui
@@ -57,11 +57,11 @@ Events:                   <none>
 
 IMPORTANT: Since CDK doesn't support the creation of external LoadBalancers, you can access the service through the *NodePort*. Kubernetes allocates a port _(default: 30000-32767)_, and each Node in the cluster will proxy that port (the same port number on every Node) into the frontend PODs. Later, in this lab, you will learn an alternative to *NodePorts* and *LoadBalancer*.
 
-First, execute *kubectl describe services frontend-ui* and find out which port (between: 30000-32767) Kubernetes assigned in the CDK node. Once that you have the NodePort, you can access the guestbook via the IP address and port number by navigating the browser to http://1.2.3.4:<NODEPORT>/. 
+First, execute *oc describe services frontend-ui* and find out which port (between: 30000-32767) Kubernetes assigned in the CDK node. Once that you have the NodePort, you can access the guestbook via the IP address and port number by navigating the browser to http://1.2.3.4:<NODEPORT>/.
 
 Example: http://192.168.64.11:31079/
 
-NOTE: The NodePort (31079) is a random value. You should use the value described in NodePort via _kubectl describe service frontend-service_. The IP is the external ip of the Kubernetes Cluster
+NOTE: The NodePort (31079) is a random value. You should use the value described in NodePort via _oc describe service frontend-service_. The IP is the external ip of the Kubernetes Cluster
 
 You should see something like this:
 

@@ -35,23 +35,23 @@ Then, use _oc exec_ to exucute a _"bash"_ process into the container:
 [source, bash, subs="normal,attributes"]
 ----
 $ *oc exec -it helloworld-service-vertx-????? bash*
-[jboss@helloworld-service-vertx-????? ~]$ _
+bash-4.2$ _
 ----
 
 You are now in a shell inside of the helloworld-service-vertx container.  You can run _ps_, and _hostname_:
 
 [source, bash, subs="normal,attributes"]
 ----
-[jboss@helloworld-service-vertx-???? ~]$ *ps aux*
+bash-4.2$ *ps aux*
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 jboss        1  0.9  0.6 2693920 53412 ?       Ssl  20:48   0:01 java -Dvertx.di
 jboss       21  0.0  0.0  13816  1784 ?        Ss   20:49   0:00 bash
 jboss       36  0.0  0.0  49468  1664 ?        R+   20:51   0:00 ps aux
 
-[jboss@helloworld-service-vertx-???? ~]$ *hostname -i*
+bash-4.2$ *hostname -i*
 172.17.0.7
 
-[jboss@helloworld-service-vertx-???? ~]$ *exit*
+bash-4.2$ *exit*
 exit
 ----
 

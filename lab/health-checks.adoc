@@ -26,7 +26,7 @@ Let's add a Liveness Probe to our Helloworld Service by editing the Deployment:
 
 [source, bash, subs="normal,attributes"]
 ----
-$ *kubectl edit deployment helloworld-service-vertx*
+$ *oc edit deployment helloworld-service-vertx*
 ----
 include::includes/tip.adoc[]
 
@@ -42,7 +42,7 @@ spec:
   template:
     ...
     spec:
-      ... 
+      ...
       containers:
       - image: rafabene/microservices-helloworld-vertx:...
         *livenessProbe:
@@ -60,7 +60,7 @@ You can add a Readiness Probe in the similar way:
 
 [source, bash, subs="normal,attributes"]
 ----
-[vagrant@rhel-cdk kubernetes]$ *kubectl edit deployment helloworld-service-vertx*
+[vagrant@rhel-cdk kubernetes]$ *oc edit deployment helloworld-service-vertx*
 ----
 include::includes/tip.adoc[]
 
@@ -76,7 +76,7 @@ spec:
   template:
     ...
     spec:
-      ... 
+      ...
       containers:
       - image: rafabene/microservices-helloworld-vertx:...
         *readinessProbe:

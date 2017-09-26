@@ -16,7 +16,7 @@
 ### Rolling Update
 Duration: 10:00
 
-It’s easy to update & rollback. 
+It’s easy to update & rollback.
 
 In this lab, we'll switch to the _frontend/_ directory and make a minor change to the index.html (e.g., change the background color, title, etc.). After that, rebuild the container.
 
@@ -32,7 +32,7 @@ HINT 1: Change the _<h2>Say Hi</h2>_ line, but feel free to change any HTML cont
 
 HINT 2: Type *':51'* to go to that line
 
-HINT 3: Type *'i'* to enter in edit mode 
+HINT 3: Type *'i'* to enter in edit mode
 
 HINT 4: Type *':wq'* to exit from vi
 ====
@@ -46,11 +46,11 @@ include::docker-image-minishift.adoc[]
 $ *docker build -t rafabene/microservices-frontend:2.0 .*
 ----
 
-Now we will use the _kubectl rolling-update_ command to perform the rolling update. We create a new *ReplicationController* called frontend-ui-2 that contains the new image.
+Now we will use the _oc rolling-update_ command to perform the rolling update. We create a new *ReplicationController* called frontend-ui-2 that contains the new image.
 
 [source,bash, subs="normal,attributes"]
 ----
-$ *kubectl set image  deployment/frontend-ui frontend-ui=rafabene/microservices-frontend:2.0*
+$ *oc set image  deployment/frontend-ui frontend-ui=rafabene/microservices-frontend:2.0*
 deployment "frontend-ui" image updated
 ----
 

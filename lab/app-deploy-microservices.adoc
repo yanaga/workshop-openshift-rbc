@@ -67,7 +67,7 @@ You can also look at each pod’s log output by running:
 
 [source, bash, subs="normal,attributes"]
 ----
-[vagrant@rhel-cdk kubernetes]$ *oc logs -f helloworld-service-vertx-?????*
+$ *oc logs -f helloworld-service-vertx-?????*
 Aug 02, 2016 5:38:11 AM io.vertx.core.impl.launcher.commands.VertxIsolatedDeployer
 INFO: Succeeded in deploying verticle
 ----

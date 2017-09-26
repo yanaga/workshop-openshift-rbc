@@ -920,7 +920,7 @@ mysql-xvi3c                      <span class="tok-m">1</span>/1       Running   
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>vagrant@rhel-cdk kubernetes<span class="tok-o">]</span>$ <strong>oc logs -f helloworld-service-vertx-?????</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc logs -f helloworld-service-vertx-?????</strong>
 Aug <span class="tok-m">02</span>, <span class="tok-m">2016</span> <span class="tok-m">5</span>:38:11 AM io.vertx.core.impl.launcher.commands.VertxIsolatedDeployer
 INFO: Succeeded in deploying verticle</code></pre>
 </div>
@@ -997,7 +997,7 @@ Note that we used the parameter <em>-l app=helloworld-service-vertx</em>. This p
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc <span class="tok-nb">exec</span> -it helloworld-service-vertx-????? bash</strong>
-<span class="tok-o">[</span>jboss@helloworld-service-vertx-????? ~<span class="tok-o">]</span>$ _</code></pre>
+bash-4.2$ _</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1005,16 +1005,16 @@ Note that we used the parameter <em>-l app=helloworld-service-vertx</em>. This p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-o">[</span>jboss@helloworld-service-vertx-???? ~<span class="tok-o">]</span>$ <strong>ps aux</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>bash-4.2$ <strong>ps aux</strong>
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 jboss        <span class="tok-m">1</span>  <span class="tok-m">0</span>.9  <span class="tok-m">0</span>.6 <span class="tok-m">2693920</span> <span class="tok-m">53412</span> ?       Ssl  <span class="tok-m">20</span>:48   <span class="tok-m">0</span>:01 java -Dvertx.di
 jboss       <span class="tok-m">21</span>  <span class="tok-m">0</span>.0  <span class="tok-m">0</span>.0  <span class="tok-m">13816</span>  <span class="tok-m">1784</span> ?        Ss   <span class="tok-m">20</span>:49   <span class="tok-m">0</span>:00 bash
 jboss       <span class="tok-m">36</span>  <span class="tok-m">0</span>.0  <span class="tok-m">0</span>.0  <span class="tok-m">49468</span>  <span class="tok-m">1664</span> ?        R+   <span class="tok-m">20</span>:51   <span class="tok-m">0</span>:00 ps aux
 
-<span class="tok-o">[</span>jboss@helloworld-service-vertx-???? ~<span class="tok-o">]</span>$ <strong>hostname -i</strong>
+bash-4.2$ <strong>hostname -i</strong>
 <span class="tok-m">172</span>.17.0.7
 
-<span class="tok-o">[</span>jboss@helloworld-service-vertx-???? ~<span class="tok-o">]</span>$ <strong>exit</strong>
+bash-4.2$ <strong>exit</strong>
 <span class="tok-nb">exit</span></code></pre>
 </div>
 </div>
@@ -1401,7 +1401,7 @@ TIP: You can delete the <strong>Route</strong> with the command: <strong>oc dele
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl describe service frontend-ui</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc describe service frontend-ui</strong>
 Name:                     frontend-ui
 Namespace:                myproject
 Labels:                   <span class="tok-nv">app</span><span class="tok-o">=</span>frontend-ui
@@ -1432,7 +1432,7 @@ Since CDK doesn&#8217;t support the creation of external LoadBalancers, you can 
 </table>
 </div>
 <div class="paragraph">
-<p>First, execute <strong>kubectl describe services frontend-ui</strong> and find out which port (between: 30000-32767) Kubernetes assigned in the CDK node. Once that you have the NodePort, you can access the guestbook via the IP address and port number by navigating the browser to <a href="http://1.2.3.4:&lt;NODEPORT&gt;/" class="bare">http://1.2.3.4:&lt;NODEPORT&gt;/</a>.</p>
+<p>First, execute <strong>oc describe services frontend-ui</strong> and find out which port (between: 30000-32767) Kubernetes assigned in the CDK node. Once that you have the NodePort, you can access the guestbook via the IP address and port number by navigating the browser to <a href="http://1.2.3.4:&lt;NODEPORT&gt;/" class="bare">http://1.2.3.4:&lt;NODEPORT&gt;/</a>.</p>
 </div>
 <div class="paragraph">
 <p>Example: <a href="http://192.168.64.11:31079/" class="bare">http://192.168.64.11:31079/</a></p>
@@ -1444,7 +1444,7 @@ Since CDK doesn&#8217;t support the creation of external LoadBalancers, you can 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The NodePort (31079) is a random value. You should use the value described in NodePort via <em>kubectl describe service frontend-service</em>. The IP is the external ip of the Kubernetes Cluster
+The NodePort (31079) is a random value. You should use the value described in NodePort via <em>oc describe service frontend-service</em>. The IP is the external ip of the Kubernetes Cluster
 </td>
 </tr>
 </table>
@@ -1586,11 +1586,11 @@ $ <strong>vi index.html</strong></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now we will use the <em>kubectl rolling-update</em> command to perform the rolling update. We create a new <strong>ReplicationController</strong> called frontend-ui-2 that contains the new image.</p>
+<p>Now we will use the <em>oc rolling-update</em> command to perform the rolling update. We create a new <strong>ReplicationController</strong> called frontend-ui-2 that contains the new image.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>kubectl <span class="tok-nb">set</span> image  deployment/frontend-ui frontend-ui<span class="tok-o">=</span>rafabene/microservices-frontend:2.0</strong>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc <span class="tok-nb">set</span> image  deployment/frontend-ui frontend-ui<span class="tok-o">=</span>rafabene/microservices-frontend:2.0</strong>
 deployment <span class="tok-s2">&quot;frontend-ui&quot;</span> image updated</code></pre>
 </div>
 </div>
