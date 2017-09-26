@@ -45,13 +45,3 @@ NOTE: The blue bars on top of the pods are "Label filters" that were applied to 
 image::images/pod.png[Pod,float="center",align="center"]
 
 Back to the *Overview* page and check that you can scale up and scale down the number of the pods simply by clicking on the gray arrows on the right hand side of the pods number.
-
-Let's perform a rolling-update in the shell and see how it behaves visually in OpenShift. Execute the following command and return to the OpenShift console in the browser:
-
-[source, bash, subs="normal,attributes"]
-----
-$ *oc set image  deployment/frontend-ui frontend-ui=rafabene/microservices-frontend:1.0*
-deployment "frontend-ui" image updated
-----
-
-image::images/rolling-update.png[Rolling Update,float="center",align="center"]
