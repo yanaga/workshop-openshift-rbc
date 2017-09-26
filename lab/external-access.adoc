@@ -18,13 +18,18 @@ Duration: 5:00
 
 Not all of our artifacts need to be externally accessible. In fact, most of them should be securely hidden from the public. That's why OpenShift never exposes your artifacts to the public by default. You need to explicitly take action to make the accessible. In OpenShift terminology, you need to create a *Route* to make any of your services exposed. We'll create a route using the OpenShift console.
 
-Let's create a route for the frontend-ui service that we have previously deployed. Check your OpenShift console and look for the "Create route" link on the frontend-ui service.
+Let's create a route for the frontend-ui service that we have previously deployed. Check your OpenShift console and look for the "Create Route" link on the frontend-ui service.
 
 image::images/create-route-link.png[Create Route Link Screenshot,float="center",align="center"]
 
-Once you click on the link, you will be redirect to the "Create Route Screen". Click on the "Create" button, as the default values should be good for most of the cases.
+Once you click on the link, you will be redirect to the "Create Route" screen. Click on the "Create" button, as the default values should be good for most of the cases.
 
 image::images/create-route-screen.png[Create Route Screen,float="center",align="center"]
 
+After this step you should see a link pointing to your externally accessible endpoint for your frontend-ui service.
 
+image::images/frontend-ui-route-created.png[OpenShift console with a route URL,float="center",align="center"]
+
+If you click on the provided route link, you should see the application UI:
+ 
 image::images/app-screenshot.png[App Screenshot,float="center",align="center"]
