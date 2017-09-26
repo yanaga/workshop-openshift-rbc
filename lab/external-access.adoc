@@ -22,7 +22,7 @@ You can see it in the frontend-service.yaml:
 
 [source,yaml,subs="normal,attributes"]
 ----
-include::../kubernetes/frontend-service.yaml[]
+include::../openshift/frontend-service.yaml[]
 ----
 
 Kubernetes *ServiceTypes* allow you to specify what kind of service you want. The default and base type is *ClusterIP*, which exposes a service to connection from inside the cluster. *_NodePort_ and _LoadBalancer_ are two types that expose services to external traffic*.

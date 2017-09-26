@@ -1176,7 +1176,36 @@ deployment <span class="tok-s2">&quot;frontend-ui&quot;</span> image updated</co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Unresolved directive in external-access.adoc - include::../kubernetes/frontend-service.yaml[]</span></code></pre>
+<pre class="pygments highlight"><code data-lang="yaml"><span></span><span class="tok-c1"># JBoss, Home of Professional Open Source</span>
+<span class="tok-c1"># Copyright 2016, Red Hat, Inc. and/or its affiliates, and individual</span>
+<span class="tok-c1"># contributors by the @authors tag. See the copyright.txt in the</span>
+<span class="tok-c1"># distribution for a full listing of individual contributors.</span>
+<span class="tok-c1"><mark></span>
+<span class="tok-c1"></mark> Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="tok-c1"># you may not use this file except in compliance with the License.</span>
+<span class="tok-c1"># You may obtain a copy of the License at</span>
+<span class="tok-c1"># <a href="http://www.apache.org/licenses/LICENSE-2.0" class="bare">http://www.apache.org/licenses/LICENSE-2.0</a></span>
+<span class="tok-c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="tok-c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="tok-c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="tok-c1"># See the License for the specific language governing permissions and</span>
+<span class="tok-c1"># limitations under the License.</span>
+
+<span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">kind</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">Service</span>
+<span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">apiVersion</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">v1</span>
+<span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">metadata</span><span class="tok-p tok-p-Indicator">:</span>
+  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">frontend-ui</span>
+  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">labels</span><span class="tok-p tok-p-Indicator">:</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">app</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">frontend-ui</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">lab</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">kubernetes-lab</span>
+<span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">spec</span><span class="tok-p tok-p-Indicator">:</span>
+  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">type</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">LoadBalancer</span>
+  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">ports</span><span class="tok-p tok-p-Indicator">:</span>
+    <span class="tok-p tok-p-Indicator">-</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">port</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">80</span>
+      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">name</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">http-80</span>
+      <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">targetPort</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">http</span>
+  <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">selector</span><span class="tok-p tok-p-Indicator">:</span>
+    <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">app</span><span class="tok-p tok-p-Indicator">:</span> <span class="tok-l tok-l-Scalar tok-l-Scalar-Plain">frontend-ui</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
