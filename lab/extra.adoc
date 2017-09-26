@@ -23,7 +23,7 @@ Here are some ideas for next steps.
 
 OpenShift allows you to get an Source code and transform it in a container image. This is very useful for people who don't know how to create your own image. OpenShift automatically detects the language and uses an appropriate "builder" to convert that in a functional container image. Actually the following languages are supported: Ruby, JavaEE, NodeJS, PHP, Pytho and Perl.
 
-Let's see how it works using the link:https://github.com/redhat-developer-demos/kubernetes-lab/tree/master/frontend[frontend sources] as an example:
+Let's see how it works using the link:https://github.com/yanaga/workshop-openshift-rbc/tree/master/frontend[frontend sources] as an example:
 
 First, let's delete the existing frontend *Route*, *Service* and *ReplicationController*
 
@@ -35,7 +35,7 @@ service "frontend-ui" deleted
 route "frontend-ui" deleted
 
 $ *oc new-app --name=frontend-ui \
-      https://github.com/redhat-developer-demos/kubernetes-lab \
+      https://github.com/yanaga/workshop-openshift-rbc \
       --strategy=source  --context-dir=frontend*
 --> Found image 0b37bce (5 weeks old) in image stream "openshift/nodejs" under tag "4" for "nodejs"
 
@@ -92,7 +92,7 @@ NOTE: To build from local, you should be in the root path of the kubernetes lab 
 
 [source, bash, subs="normal,attributes"]
 ----
-$ cd kubernetes-lab/
+$ cd lab/
 $ *oc start-build frontend-ui \
           --from-dir=. \
           --follow*
@@ -105,10 +105,10 @@ You can also build from Github sources
 [source, bash, subs="normal,attributes"]
 ----
 $ *oc start-build frontend-ui \
-         --git-repository=https://github.com/rafabene/kubernetes-lab \
+         --git-repository=https://github.com/yanaga/workshop-openshift-rbc \
          --follow*
 frontend-ui-?
-I0804 08:03:45.260863       1 source.go:197] Downloading "https://github.com/redhat-developer-demos/kubernetes-lab" ...
+I0804 08:03:45.260863       1 source.go:197] Downloading "https://github.com/yanaga/workshop-openshift-rbc" ...
 ----
 
 ### Try some microservices

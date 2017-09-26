@@ -1528,7 +1528,7 @@ Events:
 <p>OpenShift allows you to get an Source code and transform it in a container image. This is very useful for people who don&#8217;t know how to create your own image. OpenShift automatically detects the language and uses an appropriate "builder" to convert that in a functional container image. Actually the following languages are supported: Ruby, JavaEE, NodeJS, PHP, Pytho and Perl.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s see how it works using the <a href="https://github.com/redhat-developer-demos/kubernetes-lab/tree/master/frontend">frontend sources</a> as an example:</p>
+<p>Let&#8217;s see how it works using the <a href="https://github.com/yanaga/workshop-openshift-rbc/tree/master/frontend">frontend sources</a> as an example:</p>
 </div>
 <div class="paragraph">
 <p>First, let&#8217;s delete the existing frontend <strong>Route</strong>, <strong>Service</strong> and <strong>ReplicationController</strong></p>
@@ -1541,7 +1541,7 @@ service <span class="tok-s2">&quot;frontend-ui&quot;</span> deleted
 route <span class="tok-s2">&quot;frontend-ui&quot;</span> deleted
 
 $ <strong>oc new-app --name<span class="tok-o">=</span>frontend-ui <span class="tok-se">\</span>
-      <a href="https://github.com/redhat-developer-demos/kubernetes-lab" class="bare">https://github.com/redhat-developer-demos/kubernetes-lab</a> <span class="tok-se">\</span>
+      <a href="https://github.com/yanaga/workshop-openshift-rbc" class="bare">https://github.com/yanaga/workshop-openshift-rbc</a> <span class="tok-se">\</span>
       --strategy<span class="tok-o">=</span><span class="tok-nb">source</span>  --context-dir<span class="tok-o">=</span>frontend</strong>
 -&#8594; Found image 0b37bce <span class="tok-o">(</span><span class="tok-m">5</span> weeks old<span class="tok-o">)</span> in image stream <span class="tok-s2">&quot;openshift/nodejs&quot;</span> under tag <span class="tok-s2">&quot;4&quot;</span> <span class="tok-k">for</span> <span class="tok-s2">&quot;nodejs&quot;</span>
 
@@ -1617,7 +1617,7 @@ To build from local, you should be in the root path of the kubernetes lab (kuber
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> kubernetes-lab/
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ <span class="tok-nb">cd</span> lab/
 $ <strong>oc start-build frontend-ui <span class="tok-se">\</span>
           --from-dir<span class="tok-o">=</span>. <span class="tok-se">\</span>
           --follow</strong>
@@ -1631,10 +1631,10 @@ frontend-ui-?</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span></span>$ <strong>oc start-build frontend-ui <span class="tok-se">\</span>
-         --git-repository<span class="tok-o">=</span><a href="https://github.com/rafabene/kubernetes-lab" class="bare">https://github.com/rafabene/kubernetes-lab</a> <span class="tok-se">\</span>
+         --git-repository<span class="tok-o">=</span><a href="https://github.com/yanaga/workshop-openshift-rbc" class="bare">https://github.com/yanaga/workshop-openshift-rbc</a> <span class="tok-se">\</span>
          --follow</strong>
 frontend-ui-?
-I0804 <span class="tok-m">08</span>:03:45.260863       <span class="tok-m">1</span> source.go:197<span class="tok-o">]</span> Downloading <span class="tok-s2">&quot;<a href="https://github.com/redhat-developer-demos/kubernetes-lab&quot" class="bare">https://github.com/redhat-developer-demos/kubernetes-lab&quot</a>;</span> &#8230;&#8203;</code></pre>
+I0804 <span class="tok-m">08</span>:03:45.260863       <span class="tok-m">1</span> source.go:197<span class="tok-o">]</span> Downloading <span class="tok-s2">&quot;<a href="https://github.com/yanaga/workshop-openshift-rbc&quot" class="bare">https://github.com/yanaga/workshop-openshift-rbc&quot</a>;</span> &#8230;&#8203;</code></pre>
 </div>
 </div>
 </div>
